@@ -1,100 +1,120 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title"><img src="@/assets/common/login-logo.png" alt=""></h3>
       </div>
 
-      <el-form-item prop="username">
+      <el-form-item prop="mobile">
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
         <el-input
           ref="username"
-          v-model="loginForm.username"
-          placeholder="Username"
+          v-model="loginForm.mobile"
+          placeholder="请输入手机号"
           name="username"
           type="text"
           tabindex="1"
-          auto-complete="on"
+          autocomplete="on"
         />
       </el-form-item>
 
-      <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password" />
-        </span>
-        <el-input
-          :key="passwordType"
-          ref="password"
-          v-model="loginForm.password"
-          :type="passwordType"
-          placeholder="Password"
-          name="password"
-          tabindex="2"
-          auto-complete="on"
-          @keyup.enter.native="handleLogin"
-        />
-        <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
-        </span>
-      </el-form-item>
+      <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
+        <el-form-item prop="password">
+          <span class="svg-container">
+            <svg-icon icon-class="password" />
+          </span>
+          <el-input
+            :key="passwordType"
+            ref="password"
+            v-model="loginForm.password"
+            :type="passwordType"
+            placeholder="请输入密码"
+            name="password"
+            tabindex="2"
+            autocomplete="on"
+            @keyup.native="checkCapslock"
+            @blur="capsTooltip = false"
+            @keyup.enter.native="handleLogin"
+          />
+          <span class="show-pwd" @click="showPwd">
+            <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+          </span>
+        </el-form-item>
+      </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
+      <div style="position:relative">
+        <div class="tips">
+          <span style="margin-right:20px;">账号: 13800000002</span>
+          <span> 密码: 123456</span>
+        </div>
+
       </div>
-
     </el-form>
+
+    <el-dialog title="登录方式" :visible.sync="showDialog">
+
+      <br>
+      <br>
+      <br>
+      <social-sign />
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { validUsername } from '@/utils/validate'
+import { validMobile } from '@/utils/validate'
+
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',
+
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
-      } else {
-        callback()
-      }
-    }
-    const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
-      } else {
-        callback()
-      }
+    const validateMobile = (rule, value, callback) => {
+      validMobile(value) ? callback() : callback('手机号格式错误')
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        mobile: '13800000002',
+        password: '123456'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        mobile: [{ required: true, trigger: 'blur', message: '手机号不能为空' }, { validator: validateMobile, trigger: 'blur' }],
+        password: [{ required: true, trigger: 'blur', message: '密码不能为空' }, { trigger: 'blur', min: 6, max: 16, message: '密码应为6-16位数字，字母，字符串' }]
       },
-      loading: false,
       passwordType: 'password',
-      redirect: undefined
+      capsTooltip: false,
+      loading: false,
+      showDialog: false,
+      redirect: undefined,
+      otherQuery: {}
     }
   },
-  watch: {
-    $route: {
-      handler: function(route) {
-        this.redirect = route.query && route.query.redirect
-      },
-      immediate: true
+
+  created() {
+    // window.addEventListener('storage', this.afterQRScan)
+  },
+  mounted() {
+    if (this.loginForm.username === '') {
+      this.$refs.username.focus()
+    } else if (this.loginForm.password === '') {
+      this.$refs.password.focus()
     }
+  },
+  destroyed() {
+    // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
+    ...mapActions('user', ['getLogin']),
+    checkCapslock(e) {
+      const { key } = e
+      this.capsTooltip = key && key.length === 1 && (key >= 'A' && key <= 'Z')
+    },
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
@@ -106,21 +126,45 @@ export default {
       })
     },
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
-        if (valid) {
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+      console.log(this.$refs.loginForm)
+      this.$refs.loginForm.validate(async isOk => {
+        if (isOk) {
+          try {
+            this.loading = true
+            await this.getLogin(this.loginForm)
+            this.$router.push('/')
+          } catch (err) { console.log(err) } finally {
             this.loading = false
-          }).catch(() => {
-            this.loading = false
-          })
-        } else {
-          console.log('error submit!!')
-          return false
+          }
         }
       })
+    },
+    getOtherQuery(query) {
+      return Object.keys(query).reduce((acc, cur) => {
+        if (cur !== 'redirect') {
+          acc[cur] = query[cur]
+        }
+        return acc
+      }, {})
     }
+    // afterQRScan() {
+    //   if (e.key === 'x-admin-oauth-code') {
+    //     const code = getQueryObject(e.newValue)
+    //     const codeMap = {
+    //       wechat: 'code',
+    //       tencent: 'code'
+    //     }
+    //     const type = codeMap[this.auth_type]
+    //     const codeName = code[type]
+    //     if (codeName) {
+    //       this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
+    //         this.$router.push({ path: this.redirect || '/' })
+    //       })
+    //     } else {
+    //       alert('第三方登录失败')
+    //     }
+    //   }
+    // }
   }
 }
 </script>
@@ -173,21 +217,20 @@ $cursor: #fff;
 </style>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
 $dark_gray:#889aa4;
-$light_gray:#eee;
+$light_gray:#68b0f1;
 
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
   overflow: hidden;
+  background: url('~@/assets/common/login.jpg')no-repeat 0 0/ cover;
 
   .login-form {
     position: relative;
     width: 520px;
     max-width: 100%;
-    padding: 160px 35px 0;
+    padding: 300px 35px 0;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -232,6 +275,18 @@ $light_gray:#eee;
     color: $dark_gray;
     cursor: pointer;
     user-select: none;
+  }
+
+  .thirdparty-button {
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+  }
+
+  @media only screen and (max-width: 470px) {
+    .thirdparty-button {
+      display: none;
+    }
   }
 }
 </style>

@@ -13,11 +13,11 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import store from './store'
 import router from './router'
-
+import Components from './components'
 import './icons' // icon
 import './permission' // permission control
 // import './utils/error-log' // error log
-
+import * as filter from '@/filters'
 import * as directives from '@/directive/index'
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
@@ -29,8 +29,12 @@ Vue.use(Element, {
 Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])
 })
+Object.keys(filter).forEach(key => {
+  Vue.filter(key, filter[key])
+})
 
 Vue.config.productionTip = false
+Vue.use(Components)
 
 new Vue({
   el: '#app',

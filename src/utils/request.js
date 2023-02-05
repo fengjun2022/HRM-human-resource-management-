@@ -23,6 +23,7 @@ service.interceptors.request.use(config => {
   // 必须要返回的
   return config
 }, error => {
+  // if(){}
   return Promise.reject(error)
 })
 // 响应拦截器
@@ -40,8 +41,12 @@ service.interceptors.response.use(response => {
     router.push('/login')
     Promise.reject(new Error('登录超时'))
   } else {
-    Message.error(error.message) // 提示错误消息
-    return Promise.reject(error) // 返回执行错误，让当前执行链跳出成功进入catch
+    if (!navigator.onLine) {
+      Message.error('连接失败，请检查网络后重试') // 提示错误消息
+    } else {
+      Message.error(error.message) // 提示错误消息
+      return Promise.reject(error) // 返回执行错误，让当前执行链跳出成功进入catch
+    }
   }
 })
 

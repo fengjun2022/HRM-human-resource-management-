@@ -115,3 +115,17 @@ export function param2Obj(url) {
   })
   return obj
 }
+
+export function transFormTreeStructure(list, nodeValue = '') {
+  const arr = []
+  list.forEach(item => {
+    if (item.pid === nodeValue) {
+      const children = transFormTreeStructure(list, item.id)
+      if (children.length) {
+        item.children = children
+      }
+      arr.push(item)
+    }
+  })
+  return arr
+}

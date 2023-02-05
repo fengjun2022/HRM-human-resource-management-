@@ -1,8 +1,19 @@
 <template>
   <div class="dashboard-container">
     <!-- <component :is="currentRole" /> -->
-  </div>
-</template>
+
+    <PageTools>
+      <template #after>
+        <el-button type="primary">1111</el-button>
+
+      </template>
+      <template #before>
+        <span>2222</span>
+
+      </template>
+    </PageTools>
+    <UploadExcel />
+  </div></template>
 
 <script>
 import { mapGetters } from 'vuex'
@@ -11,6 +22,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Dashboard',
+
   // components: { adminDashboard, editorDashboard },
   data() {
     return {

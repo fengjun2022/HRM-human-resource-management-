@@ -1,18 +1,6 @@
 <template>
   <div class="dashboard-container">
     <!-- <component :is="currentRole" /> -->
-
-    <PageTools>
-      <template #after>
-        <el-button type="primary">1111</el-button>
-
-      </template>
-      <template #before>
-        <span>2222</span>
-
-      </template>
-    </PageTools>
-    <UploadExcel />
   </div></template>
 
 <script>

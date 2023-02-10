@@ -22,7 +22,7 @@
 export default {
   props: {
     sheBefore: {
-      default: true,
+      default: false,
       type: Boolean
     }
   }

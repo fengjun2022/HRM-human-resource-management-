@@ -126,14 +126,13 @@ export default {
       })
     },
     handleLogin() {
-      console.log(this.$refs.loginForm)
       this.$refs.loginForm.validate(async isOk => {
         if (isOk) {
           try {
             this.loading = true
             await this.getLogin(this.loginForm)
             this.$router.push('/')
-          } catch (err) { console.log(err) } finally {
+          } catch (err) { return } finally {
             this.loading = false
           }
         }

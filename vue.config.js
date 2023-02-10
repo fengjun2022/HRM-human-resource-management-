@@ -40,7 +40,7 @@ module.exports = {
     proxy: {
       // 当我们的本地的请求 有/api的时候，就会代理我们的请求地址向另外一个服务器发出请求
       '/api': {
-        target: 'http://ihrm-java.itheima.net/', // 跨域请求的地址
+        target: 'http://hrm.itheima.net/', // 跨域请求的地址
         changeOrigin: true // 只有这个值为true的情况下 才表示开启跨域
       }
     }
@@ -62,6 +62,7 @@ module.exports = {
       {
         rel: 'preload',
         // to ignore runtime.js
+        // http://hrm.itheima.net/
         // https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/cli-service/lib/config/app.js#L171
         fileBlacklist: [/\.map$/, /hot-update\.js$/, /runtime\..*\.js$/],
         include: 'initial'
@@ -70,7 +71,7 @@ module.exports = {
 
     // when there are many pages, it will cause too many meaningless requests
     config.plugins.delete('prefetch')
-
+    // 'http://ihrm-java.itheima.net/'
     // set svg-sprite-loader
     config.module
       .rule('svg')

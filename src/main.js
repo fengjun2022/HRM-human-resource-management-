@@ -19,10 +19,14 @@ import './permission' // permission control
 // import './utils/error-log' // error log
 import * as filter from '@/filters'
 import * as directives from '@/directive/index'
+import mixin from '@/layout/mixin/index'
+
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
-
 })
+
+// 全局混入一个重置表单的方法
+Vue.mixin(mixin)
 
 // register global utility filters
 
@@ -42,3 +46,4 @@ new Vue({
   store,
   render: h => h(App)
 })
+

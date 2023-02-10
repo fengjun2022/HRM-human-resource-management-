@@ -16,7 +16,7 @@
             </span>
             <!-- 下拉菜单 -->
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>添加子部门</el-dropdown-item>
+              <el-dropdown-item :disabled="!checkRermission('add-dept')">添加子部门</el-dropdown-item>
               <el-dropdown-item v-if="!isRoot" command="EditorialDepartment">编辑部门</el-dropdown-item>
               <el-dropdown-item v-if="!isRoot" command="delDepartments">删除部门</el-dropdown-item>
             </el-dropdown-menu>

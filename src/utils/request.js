@@ -41,8 +41,9 @@ service.interceptors.response.use(response => {
     router.push('/login')
     Promise.reject(new Error('登录超时'))
   } else {
-    if (!navigator.onLine) {
+    if (!navigator.onLine || error.message === 'timeout of 5000ms exceeded') {
       Message.error('连接失败，请检查网络后重试') // 提示错误消息
+      return
     } else {
       Message.error(error.message) // 提示错误消息
       return Promise.reject(error) // 返回执行错误，让当前执行链跳出成功进入catch

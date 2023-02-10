@@ -1,0 +1,273 @@
+[33mcommit d225f6871f9427ada32b7d5fb5a63df6e6d22e00[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: 冯骏 <3278440884@qq.com>
+Date:   Fri Feb 10 15:32:22 2023 +0800
+
+    完成了组织架构+公司+员工+权限的业务联调
+
+[33mcommit 467f14b10bc314ac238b892159d4bf2e6b9c9bbb[m
+Author: 冯骏 <3278440884@qq.com>
+Date:   Sun Feb 5 14:54:39 2023 +0800
+
+    这是第二次提交
+
+[33mcommit 3e4eedb83b4bbe0f27f1386302a00693bb14427d[m
+Author: 冯骏 <3278440884@qq.com>
+Date:   Mon Jan 23 23:08:58 2023 +0800
+
+    完成了登录页面以及主页模板
+
+[33mcommit 4c18a3f47bdb417ad8a25f09910f848cb574dee2[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Fri Nov 19 15:21:54 2021 +0800
+
+    docs: update readme
+
+[33mcommit 714ded1155a5d9b04bc9710b22fe71f9ee7143c2[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Aug 30 22:59:10 2020 +0800
+
+    docs: remove gitads
+
+[33mcommit 785f19f551c6255defbf8a126c4b0bb4ecb4ae43[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Jul 26 10:07:01 2020 +0800
+
+    Update README.md
+
+[33mcommit 75ba8cf038693b28deb6bebf5d845503c4f5febe[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jul 13 10:42:23 2020 +0800
+
+    docs: update ads url
+
+[33mcommit abcd5d810d0f76aa79db252856f9aef5f15224e0[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Jul 5 10:57:28 2020 +0800
+
+    docs: add gitads
+
+[33mcommit 8c4e38fb1fcf564b29e2dec3368f503f69d0c461[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Tue Jun 30 21:30:58 2020 +0800
+
+    Update README.md
+
+[33mcommit fe326aa2b061761878738d47c62c95e87940e901[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Tue Jun 30 21:20:43 2020 +0800
+
+    Update README.md
+
+[33mcommit c9cb7db3ce62e5cfb54029e1ebc5545866cb038c[m
+Author: morrxy <morrxy@gmail.com>
+Date:   Fri Jun 26 18:40:32 2020 +0800
+
+    perf[getInfo]:stop run after reject (#599)
+
+[33mcommit cd8d52bfbd035baa3e3d15851bd684691c9b2b9e[m
+Author: morrxy <morrxy@gmail.com>
+Date:   Thu Jun 25 13:51:25 2020 +0800
+
+    fix: add route name(#598)
+
+[33mcommit 879318692c2990b2a6646c2567f0c9b741434f4d[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Wed Jun 24 10:21:07 2020 +0800
+
+    perf[chore]: remove preserveWhitespace config (#597)
+
+[33mcommit 8e76fdb622ad350147c557561be6e807ea3a6c68[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Tue Jun 23 21:11:06 2020 +0800
+
+    fix: do not preload runtime.js (#596)
+    
+    add runtime.js to fileBlacklist
+
+[33mcommit 129ea7e65414e0f2beab091c435a4c9f60082351[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Jun 21 21:54:51 2020 +0800
+
+    [release] 4.4.0
+
+[33mcommit 83f3a9cc579b6d330271671a202646478e4c9d76[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Jun 21 21:46:49 2020 +0800
+
+    bump: update to vue-cli@4 (#591)
+
+[33mcommit b292e46f452e7f4625ca1b022505cb952848dd68[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Fri Jun 19 15:52:59 2020 +0800
+
+    fix: fixed param2Obj.spec.js
+
+[33mcommit 4958db1bad1d673916d837c052af79ac3c158492[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jun 15 17:15:29 2020 +0800
+
+    fix typo
+
+[33mcommit 88303a295902a54883e24f36fb54310bbd54c8eb[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jun 15 17:14:28 2020 +0800
+
+    chore: update element-ui to 2.13.2
+
+[33mcommit 8865514c81a6bc38a6d7d06827056cc79436bdf3[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jun 15 17:13:53 2020 +0800
+
+    fix[utils]: param2Obj bug when url params includes ==
+
+[33mcommit e2fd7c7528d3bb8b840b1383007ef5d347fcd635[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jun 15 17:11:28 2020 +0800
+
+    feat[Menu]: menu icon support el-icon
+
+[33mcommit 5c87772025d626762e8b5115efe29c691424bdbb[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jun 15 17:07:49 2020 +0800
+
+    refactor: change mock files to commonjs
+
+[33mcommit efc976ae5ac572beaa45079258882a8648b944b9[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Mon Jun 15 17:03:06 2020 +0800
+
+    chore: turn on the preload
+
+[33mcommit 8f2c04e60cfd19465e5a24a7de8dbbacce151f5e[m[33m ([m[1;33mtag: 4.3.0[m[33m)[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Tue Jun 9 16:01:17 2020 +0800
+
+    [release] 4.3.0
+
+[33mcommit e1c24e7e85ffa17e020693c3b0ea77204c7bf532[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Tue Jun 9 16:00:51 2020 +0800
+
+    chore: chore: change node-sass to dart-sass
+
+[33mcommit 4a822b95d66e0ef6a6754c997e798d3fae6a9ce1[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:26:13 2020 +0800
+
+    fix[parseTime]: fixed when pass null
+    
+    https://github.com/PanJiaChen/vue-element-admin/commit/5890499077589db1c04c7a72c4dacaa97a58f87c
+
+[33mcommit aff349a86361efabec4cd705321889dc37e274e3[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:24:14 2020 +0800
+
+    fix: compatibility with vetur
+    
+    https://github.com/PanJiaChen/vue-element-admin/commit/fc26c3106fefda7ff80afdc8bcad06f0b1ef2909
+
+[33mcommit 00c68bc5cd80953a72e833bac228d227bdb67ffd[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:22:40 2020 +0800
+
+    fix: use vue-cli default source-map
+    
+    https://github.com/PanJiaChen/vue-element-admin/commit/d4405464ceb53513bff7ec6caf07113623e95383
+
+[33mcommit ad02035220d462b26005ea280b122a90a86d47ea[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:22:05 2020 +0800
+
+    fix: svg support old broswer
+    
+    https://github.com/PanJiaChen/vue-element-admin/commit/6eccffeb2f9037e873591944e119d0246139ffc7
+
+[33mcommit fc7c3f1da492b10501dc1eec823eb4741ba63e4e[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:21:19 2020 +0800
+
+    docs: add smallsticker
+
+[33mcommit 97290e6f49eba1b4c1ede14a2d8c70fb5f363386[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:19:22 2020 +0800
+
+    fix:fixed parseTime bug in ie and safari
+    
+    https://github.com/PanJiaChen/vue-element-admin/commit/776f10e19720039d39593064663b618fbdb0e837
+
+[33mcommit 4502d3ebc728c267cf1d4f3e0d22585204d136c0[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:15:31 2020 +0800
+
+    perf: remove script-loader
+
+[33mcommit d0518bce5b1e5fc07c4458ef2cc13110e0357a78[m
+Author: 潘嘉晨 <panjiachen@bytedance.com>
+Date:   Thu Jun 4 21:14:26 2020 +0800
+
+    perf[Mock]: set responseFake to mock-server.js
+    
+    https://github.com/PanJiaChen/vue-element-admin/pull/2966
+
+[33mcommit 95c7bf5d10d5071136ed34cdd8ba669a281de523[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Thu Jan 9 20:53:06 2020 +0800
+
+    fix: fixed mock server (#541)
+
+[33mcommit 227ca9b649d493216f3329cae7aef4efc2708924[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Thu Jan 9 20:41:01 2020 +0800
+
+    bump: update element-ui version
+
+[33mcommit d4c29f903f1876222e25910c1ed42f30d47f9797[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Thu Jan 9 20:39:42 2020 +0800
+
+    perf: import mockXHR only in production
+
+[33mcommit bc9411186775be08eeb3bc73883bc1896b12cdcf[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Thu Jan 9 20:38:04 2020 +0800
+
+    perf[Menu]: remove unused menu-wrapper
+
+[33mcommit 9cf308265981eb3044c744fe2d7952984ce29eab[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Thu Jan 9 20:37:26 2020 +0800
+
+    fix[Logout]: click blank area of ​​dropDown able to logout
+
+[33mcommit f70f0675ba309fc2f33c06c0610d5a50bd1db00e[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Dec 29 14:35:13 2019 +0800
+
+    perf: refine code
+
+[33mcommit 616957799001d5b161ea8bb9cd0846e6255863f9[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Sun Dec 29 14:24:11 2019 +0800
+
+    fix: logout reset state
+
+[33mcommit dc5aa51577c4e432ff59fd711c1d2de99220993e[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Fri Oct 25 19:44:44 2019 +0800
+
+    style:  fix el-date-picker css style
+
+[33mcommit 35ea50deea84fb0b42c0246810ea08c3c5c70023[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Fri Oct 25 18:23:53 2019 +0800
+
+    doc: perf zh docs
+
+[33mcommit 5afac23d2fecfe6cfab14ec8efa273d02269adb0[m
+Author: 花裤衩 <panfree23@gmail.com>
+Date:   Tue Oct 22 20:29:58 2019 +0800
+
+    perf[SvgIcon]: change xlink:href to href
+
+[33mcommit f32b49e6621029c434b4f3bf0139fb014e58

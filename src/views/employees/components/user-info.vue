@@ -375,6 +375,7 @@ export default {
     async getPersonalDetail() {
       this.formData = await getPersonalDetail(this.userId)
       if (this.formData.staffPhoto && this.userInfo.staffPhoto.trim()) {
+        console.log(11)
         this.$refs.myStaff.fileList = [{ url: this.userInfo.staffPhoto, upload: true }]
       }
     },
